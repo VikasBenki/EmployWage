@@ -12,7 +12,7 @@ namespace EmpWage
         {
             Console.WriteLine("Hello welcome to EmpWage problem");
             EmpWage employee = new EmpWage();
-            employee.DailyEmployeeWage();
+            employee.MonthlyEmpWage();
             Console.ReadLine();
         }
     }
