@@ -12,12 +12,16 @@ namespace EmpWage
         {
             Console.WriteLine("Hello welcome to EmpWage problem");
 
-            EmpWage dMart = new EmpWage("DMart", 20, 2, 10);
-            EmpWage reliance = new EmpWage("Reliance", 10, 4, 10);
-            dMart.computeEmpWage();
-            Console.WriteLine(dMart.toString());
-            reliance.computeEmpWage();
-            Console.WriteLine(reliance.toString());
+            //printing message on console
+            Console.WriteLine("Welcome To Employee Wage Computation Program \n");
+
+            //Creating Object for each company and passing value to constructor.
+            CalculateEmpWage company = new CalculateEmpWage();
+            company.AddCompany("Dmart", 30, 120, 25);
+            company.AddCompany("Reliance", 25, 125, 24);
+            company.AddCompany("Amazon", 40, 110, 22);
+            company.GetWage();
+            Console.WriteLine("Total Wage for Company is: " + company.GetTotalWage("Dmart"));
             Console.ReadLine();
         }
     }

@@ -8,49 +8,30 @@ namespace EmpWage
 {
     internal class EmpWage
     {
-        public const int IS_PART_TIME = 1;
-        public const int IS_FULL_TIME = 2;
+        //Instance variables.
+        public string company;
+        public int wagePrHrs, totalWorkHrs, totalWorkDay, totalWage;
 
-        private string company;
-        private int empRatePerHour;
-        private int numOfWorkingDays;
-        private int maxHoursPerMonth;
-        private int totalEmpWage;
-        public EmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+        //Constructor to set value for each object.
+        public EmpWage(string company, int wagePrHrs, int totalWorkHrs, int totalWorkDay)
         {
             this.company = company;
-            this.empRatePerHour = empRatePerHour;
-            this.numOfWorkingDays = numOfWorkingDays;
-            this.maxHoursPerMonth = maxHoursPerMonth;
+            this.wagePrHrs = wagePrHrs;
+            this.totalWorkHrs = totalWorkHrs;
+            this.totalWorkDay = totalWorkDay;
         }
-        public void computeEmpWage()
+
+        //Method to set Total Wage of a Company.
+        public void SetTotalWage(int totalWage)
         {
-            int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
-            while (totalEmpHrs <= this.maxHoursPerMonth && totalWorkingDays < this.numOfWorkingDays)
-            {
-                totalWorkingDays++;
-                Random random = new Random();
-                int empCheck = random.Next(0, 3);
-                switch (empCheck)
-                {
-                    case IS_PART_TIME:
-                        empHrs = 4;
-                        break;
-                    case IS_FULL_TIME:
-                        empHrs = 8;
-                        break;
-                    default:
-                        empHrs = 0;
-                        break;
-                }
-                totalEmpHrs += empHrs;
-                Console.WriteLine("Day#:" + totalWorkingDays + " Employee Hours : " + empHrs);
-            }
-            totalEmpWage = totalEmpHrs * this.empRatePerHour;
+            this.totalWage = totalWage;
         }
+
+        //Method to show Total Wage of a company.
         public string toString()
         {
-            return "The Total Employee Wage for Company " + this.company + " is " + this.totalEmpWage;
+            return "Total Wage of a Company: " + this.company + " is " + this.totalWage;
         }
     }
 }
+
